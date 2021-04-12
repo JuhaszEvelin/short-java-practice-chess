@@ -1,6 +1,6 @@
 package com.codecool.chess;
 
-public class Board {
+public class ChessStand {
     String blackPlayerName;
-
+    Board board;
 }
