@@ -58,8 +58,8 @@ public class Board {
     public boolean isWhiteKingAttackedByBlackKnight() throws WhiteKingNotFoundException {
         List<BlackKnight> blackKnights = collectBlackKnights();
         WhiteKing whiteKing = findWhiteKing();
-        return blackKnights.stream()
-                .map(BlackKnight::getAttackedPositions)
+        return  blackKnights.stream()
+                .flatMap(blackKnight -> blackKnight.getAttackedPositions().stream())
                 .anyMatch(attackedPosition -> whiteKing.getPosition().equals(attackedPosition));
     }
 }
