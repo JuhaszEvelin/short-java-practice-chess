@@ -1,19 +1,19 @@
 package com.codecool.chess;
 
-public class Movement {
+class Movement {
     private int deltaX;
     private int deltaY;
 
-    public Movement(int deltaX, int deltaY) {
+    Movement(int deltaX, int deltaY) {
         this.deltaX = deltaX;
         this.deltaY = deltaY;
     }
 
-    public int getDeltaX() {
+    int getDeltaX() {
         return deltaX;
     }
 
-    public int getDeltaY() {
+    int getDeltaY() {
         return deltaY;
     }
 }

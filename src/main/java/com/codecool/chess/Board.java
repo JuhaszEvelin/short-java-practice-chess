@@ -3,22 +3,18 @@ package com.codecool.chess;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
+class Board {
     private static final int SIZE = 8;
     private String[][] squares;
 
-    public Board(String[][] squares) throws InvalidChessBoardException {
+    Board(String[][] squares) throws InvalidChessBoardException {
         if(!hasValidSize(squares)){
             throw new  InvalidChessBoardException();
         }
         this.squares = squares;
     }
 
-    public String[][] getSquares() {
-        return squares;
-    }
-
-    public static int getSize() {
+    static int getSize() {
         return SIZE;
     }
 
@@ -32,7 +28,7 @@ public class Board {
             for (int y = 0; y < Board.SIZE; y++) {
                 Position currentPosition = new Position(x,y);
                 String pieceCode = squares[x][y];
-                if(pieceCode.equals(BlackKnight.CODE_FOR_BLACK_KNIGHT)){
+                if(pieceCode.equals(BlackKnight.PIECE_CODE)){
                     blackKnights.add(new BlackKnight(currentPosition));
                 }
                 if (blackKnights.size() == 2){
@@ -47,7 +43,7 @@ public class Board {
         for (int x = 0; x < Board.SIZE; x++) {
             for (int y = 0; y < Board.SIZE; y++) {
                 String pieceCode = squares[x][y];
-                if(pieceCode.equals(WhiteKing.CODE_FOR_WHITE_KING)){
+                if(pieceCode.equals(WhiteKing.PIECE_CODE)){
                     return new WhiteKing(new Position(x,y));
                 }
             }
@@ -55,7 +51,7 @@ public class Board {
         throw new WhiteKingNotFoundException();
     }
 
-    public boolean isWhiteKingAttackedByBlackKnight() throws WhiteKingNotFoundException {
+    boolean isWhiteKingAttackedByBlackKnight() throws WhiteKingNotFoundException {
         List<BlackKnight> blackKnights = collectBlackKnights();
         WhiteKing whiteKing = findWhiteKing();
         return  blackKnights.stream()

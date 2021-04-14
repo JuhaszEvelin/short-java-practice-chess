@@ -1,4 +1,4 @@
 package com.codecool.chess;
 
-public class InvalidChessBoardException extends Exception {
+class InvalidChessBoardException extends Exception {
 }
