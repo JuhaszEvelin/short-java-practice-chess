@@ -56,6 +56,5 @@ public class Round {
                 isWinner = true;
             }
         }
-
     }
 }
